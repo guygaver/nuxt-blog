@@ -13,10 +13,12 @@
   export default {
     name: 'index',
 
+    middleware: ['check-auth', 'auth'],
+
     layout: 'admin',
 
     asyncData(context) {
-      return axios.get(`https://learning-nuxt-f474e.firebaseio.com/posts/${context.params.postId}.json`)
+      return axios.get(`${process.env.BASE_URL}/posts/${context.params.postId}.json`)
         .then(res => {
           return {
             post: {...res.data, id: context.params.postId}

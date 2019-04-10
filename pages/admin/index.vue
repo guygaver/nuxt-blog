@@ -2,6 +2,7 @@
 <div class="admin-page">
   <section class="new-post">
     <AppButton @click="$router.push('/admin/new-post')">Create Post</AppButton>
+    <AppButton @click="onLogout">Logout</AppButton>
   </section>
   <section class="existing-posts">
     <h1>Existing Posts</h1>
@@ -16,6 +17,7 @@
 
   export default {
     name: 'index',
+    middleware: ['check-auth', 'auth'],
     layout: 'admin',
     components: {
       AppButton,
@@ -24,6 +26,13 @@
     computed: {
       posts() {
         return this.$store.getters.posts;
+      }
+    },
+
+    methods: {
+      onLogout() {
+        this.$store.dispatch('logout')
+        this.$router.push('/admin/auth')
       }
     }
   }

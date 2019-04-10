@@ -13,6 +13,7 @@
   import TheSideNav from '@/components/Navigation/TheSideNav'
 
   export default {
+    middleware: 'log',
     components: {
       'the-header': TheHeader,
       'the-side-nav': TheSideNav

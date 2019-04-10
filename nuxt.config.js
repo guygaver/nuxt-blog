@@ -28,12 +28,14 @@ export default {
   ** Global CSS
   */
   css: [
+    '~assets/css/main.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "~/plugins/core-ui.js"
   ],
 
   /*
@@ -51,5 +53,50 @@ export default {
     */
     extend(config, ctx) {
     }
-  }
+  },
+
+  // whether you are in dev
+  // dev: false
+
+  // env vars to inject
+  env: {
+    BASE_URL: process.env.BASE_URL || 'https://learning-nuxt-f474e.firebaseio.com'
+  },
+
+  // source directory of nuxt files
+  // srcDir: 'client-app/
+
+  // allows overwriting of VueRouter
+  // should mostly utilize out of the box router structure
+  router: {
+    // linkActiveClass: 'active',
+    // extendRoutes(routes) {
+    //   routes.push({
+    //     path: "*",
+    //     component: resolve(__dirname, 'pages/index.vue')
+    //   })
+    // },
+    //   middleware:
+  },
+
+  // set where nuxt folders live
+  // rootDir: '',
+
+  // change the way nuxt generates pages
+  // generate: {
+  //
+  // },
+
+  // for setting page transitions
+  // transition: 'page'
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
+
+  // executed prior to nuxt rendering process
+  // can register any express middleware we want to run
+  // serverMiddleware: {
+  //
+  // }
 }

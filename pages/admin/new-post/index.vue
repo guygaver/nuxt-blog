@@ -8,10 +8,11 @@
 
 <script>
 import AdminPostForm from "@/components/Admin/AdminPostForm";
-import axios from "axios";
 
 export default {
   name: "index",
+
+  middleware: ['check-auth', 'auth'],
 
   layout: "admin",
 
