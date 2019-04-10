@@ -1,5 +1,9 @@
 import pkg from './package'
 
+if (!process.client) {
+  require('dotenv').config()
+}
+
 export default {
   mode: 'universal',
 
@@ -60,7 +64,8 @@ export default {
 
   // env vars to inject
   env: {
-    BASE_URL: process.env.BASE_URL || 'https://learning-nuxt-f474e.firebaseio.com'
+    BASE_URL: process.env.BASE_URL,
+    FB_API_KEY: process.env.FB_API_KEY,
   },
 
   // source directory of nuxt files

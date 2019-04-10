@@ -39,10 +39,10 @@ export default {
     context.commit('setPosts', posts)
   },
   authenticateUser (vuexContext, authData) {
-    let authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCyLhcI9P2IrkbmHmcC2xJHRhiJY-AsrlM'
+    let authUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${process.env.FB_API_KEY}`
 
     if (!authData.isLogin) {
-      authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCyLhcI9P2IrkbmHmcC2xJHRhiJY-AsrlM'
+      authUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.FB_API_KEY}`
     }
 
     return axios.post(authUrl, {
