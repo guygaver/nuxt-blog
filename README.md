@@ -1,4 +1,4 @@
-# blog-project
+# nuxt-blog
 
 > My magnificent Nuxt.js project
 
